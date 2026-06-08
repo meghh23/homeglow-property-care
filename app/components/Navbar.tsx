@@ -1,13 +1,15 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#reviews", label: "Reviews" },
-  { href: "#contact", label: "Contact" },
+  { href: "/services", label: "Services" },
+  { href: "/areas", label: "Areas" },
+  { href: "/about", label: "About" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -16,7 +18,7 @@ export default function Navbar() {
   return (
     <header className="navbar">
       <div className="container navbar-container">
-        <div className="navbar-logo">
+        <Link href="/" className="navbar-logo">
           <Image
             src="/images/logo.png"
             alt="HomeGlow Property Care"
@@ -24,13 +26,13 @@ export default function Navbar() {
             height={48}
           />
           <span>HomeGlow Property Care</span>
-        </div>
+        </Link>
 
         <nav>
           <ul className="nav-links">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a href={link.href}>{link.label}</a>
+                <Link href={link.href}>{link.label}</Link>
               </li>
             ))}
           </ul>
@@ -61,13 +63,13 @@ export default function Navbar() {
 
       <div className={`container mobile-nav ${menuOpen ? "open" : ""}`}>
         {navLinks.map((link) => (
-          <a
+          <Link
             key={link.href}
             href={link.href}
             onClick={() => setMenuOpen(false)}
           >
             {link.label}
-          </a>
+          </Link>
         ))}
         <a
           href="tel:07447935018"

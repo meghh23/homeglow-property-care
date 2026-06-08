@@ -1,21 +1,8 @@
-const reviews = [
-  {
-    name: "Sarah M.",
-    review: "Fantastic service. My home looked brand new after the deep clean.",
-  },
-  {
-    name: "James R.",
-    review: "Very professional, reliable and friendly team.",
-  },
-  {
-    name: "Emma T.",
-    review: "Highly recommend HomeGlow Property Care. Excellent results.",
-  },
-];
+import { reviews } from "../data/reviews";
 
 export default function Reviews() {
   return (
-    <section id="reviews" className="reviews">
+    <section className="reviews">
       <div className="container">
         <h2>Customer Reviews</h2>
 

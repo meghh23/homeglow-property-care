@@ -1,29 +1,22 @@
 import Image from "next/image";
+import Link from "next/link";
+import { services } from "../data/services";
 
-const services = [
-  {
-    title: "Domestic Cleaning",
-    image: "/images/domestic-cleaning.jpg",
-  },
-  {
-    title: "Office Cleaning",
-    image: "/images/office-cleaning.jpg",
-  },
-  {
-    title: "Deep Cleaning",
-    image: "/images/deep-cleaning.jpg",
-  },
-];
+export default function Services({ limit }: { limit?: number }) {
+  const items = limit ? services.slice(0, limit) : services;
 
-export default function Services() {
   return (
-    <section id="services" className="services">
+    <section className="services">
       <div className="container">
         <h2>Our Services</h2>
 
         <div className="services-grid">
-          {services.map((service) => (
-            <div className="service-card" key={service.title}>
+          {items.map((service) => (
+            <Link
+              href={`/services/${service.slug}`}
+              className="service-card"
+              key={service.slug}
+            >
               <div className="service-card-image">
                 <Image
                   src={service.image}
@@ -33,9 +26,20 @@ export default function Services() {
                 />
               </div>
               <h3>{service.title}</h3>
-            </div>
+              <p className="service-card-desc">{service.shortDescription}</p>
+              <span className="service-card-price">{service.priceFrom}</span>
+              <span className="card-link">Learn more →</span>
+            </Link>
           ))}
         </div>
+
+        {limit && limit < services.length && (
+          <div className="section-cta">
+            <Link href="/services" className="text-link">
+              View all {services.length} services →
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

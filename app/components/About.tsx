@@ -1,8 +1,15 @@
 import Image from "next/image";
+import Link from "next/link";
 
-export default function About() {
+export default function About({
+  compact,
+  hideHeading,
+}: {
+  compact?: boolean;
+  hideHeading?: boolean;
+}) {
   return (
-    <section id="about" className="about-section">
+    <section className="about-section">
       <div className="container">
         <div className="about-grid">
           <div className="about-image">
@@ -15,9 +22,13 @@ export default function About() {
           </div>
 
           <div className="about-content">
-            <span className="about-tag">ABOUT HOMEGLOW</span>
+            {!hideHeading && (
+              <span className="about-tag">ABOUT HOMEGLOW</span>
+            )}
 
-            <h2>Professional Cleaning Services You Can Trust</h2>
+            {!hideHeading && (
+              <h2>Professional Cleaning Services You Can Trust</h2>
+            )}
 
             <p>
               HomeGlow Property Care provides reliable and affordable
@@ -25,20 +36,42 @@ export default function About() {
               surrounding areas.
             </p>
 
-            <p>
-              Our experienced cleaning professionals deliver exceptional
-              results for homes, offices, end of tenancy properties,
-              deep cleans and regular domestic cleaning.
-            </p>
+            {!compact && (
+              <>
+                <p>
+                  Our experienced cleaning professionals deliver exceptional
+                  results for homes, offices, end of tenancy properties,
+                  deep cleans and regular domestic cleaning.
+                </p>
+
+                <p>
+                  We are fully insured, use eco-friendly products where
+                  possible, and pride ourselves on flexible scheduling and
+                  100% customer satisfaction.
+                </p>
+              </>
+            )}
 
             <div className="about-features">
               <div className="feature">Fully Insured</div>
               <div className="feature">Professional Team</div>
               <div className="feature">Reliable Service</div>
               <div className="feature">Affordable Prices</div>
-              <div className="feature">Flexible Scheduling</div>
-              <div className="feature">100% Satisfaction</div>
+              {!compact && (
+                <>
+                  <div className="feature">Flexible Scheduling</div>
+                  <div className="feature">100% Satisfaction</div>
+                </>
+              )}
             </div>
+
+            {compact && (
+              <div className="section-cta section-cta--left">
+                <Link href="/about" className="text-link">
+                  Learn more about us →
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>

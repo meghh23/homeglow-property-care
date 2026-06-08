@@ -15,6 +15,13 @@ export const metadata = {
   title: "HomeGlow Property Care | Professional Cleaning Services in Harrow",
   description:
     "Professional domestic, office and deep cleaning services across Harrow, Wembley, Pinner, Ruislip and surrounding areas.",
+  icons: {
+    icon: [
+      { url: "/images/logo.png", type: "image/png" },
+    ],
+    apple: "/images/logo.png",
+    shortcut: "/images/logo.png",
+  },
 };
 
 export default function RootLayout({

@@ -1,31 +1,26 @@
+import SiteLayout from "./components/SiteLayout";
 import Hero from "./components/Hero";
 import TrustStrip from "./components/TrustStrip";
-import Services from "./components/Services";
-import Areas from "./components/Areas";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
 import About from "./components/About";
+import Stats from "./components/Stats";
+import Services from "./components/Services";
 import Gallery from "./components/Gallery";
 import Reviews from "./components/Reviews";
-import WhatsAppButton from "./components/WhatsAppButton";
-import Navbar from "./components/Navbar";
-import Stats from "./components/Stats";
+import Areas from "./components/Areas";
+import CTABanner from "./components/CTABanner";
 
 export default function Home() {
   return (
-    <main>
-      <Navbar />
+    <SiteLayout>
       <Hero />
       <TrustStrip />
-      <About />
+      <About compact />
       <Stats />
-      <Services />
-      <Gallery />
+      <Services limit={6} />
+      <Gallery limit={2} />
       <Reviews />
-      <Areas />
-      <Contact />
-      <Footer />
-      <WhatsAppButton />
-    </main>
+      <Areas limit={6} />
+      <CTABanner />
+    </SiteLayout>
   );
 }
