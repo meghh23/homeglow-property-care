@@ -17,10 +17,11 @@ export const metadata = {
     "Professional domestic, office and deep cleaning services across Harrow, Wembley, Pinner, Ruislip and surrounding areas.",
   icons: {
     icon: [
-      { url: "/images/logo.png", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/images/logo.png", type: "image/png", sizes: "512x512" },
     ],
-    apple: "/images/logo.png",
-    shortcut: "/images/logo.png",
+    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon.ico",
   },
 };
 
